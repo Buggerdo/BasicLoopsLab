@@ -12,12 +12,19 @@ namespace BasicLoopsLab
         {
             bool isDoorLocked = true;
             int code = 13579;
-            int guess;
-            int numOfGuesses = 1;
 
+            Loop(code, isDoorLocked);
+            
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
+        }
+
+        private void Loop(int code, bool isDoorLocked)
+        {
+            int numOfGuesses = 1;
             do
             {
-                guess = Tools.GetInt("Hi, please enter the key code: ");
+                int guess = Tools.GetInt("Hi, please enter the key code: ");
                 if(guess == code)
                 {
                     isDoorLocked = false;
@@ -33,9 +40,6 @@ namespace BasicLoopsLab
                     break;
                 }
             } while(isDoorLocked);
-            
-            Console.WriteLine("Press any key to continue");
-            Console.ReadKey();
         }
     }
 }
