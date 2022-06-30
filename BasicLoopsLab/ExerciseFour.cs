@@ -13,11 +13,14 @@ namespace BasicLoopsLab
             {
                 bool isDoorLocked = true;
                 int code = 13579;
-                int numOfGuesses = 1;
+                int maxGuesses = 5;
+                int numOfGuesses = 0;
 
                 while(isDoorLocked)
                 {
                     int guess = Tools.GetInt("Hi, please enter the key code: ");
+                    numOfGuesses++;
+
                     if(guess == code)
                     {
                         isDoorLocked = false;
@@ -26,8 +29,7 @@ namespace BasicLoopsLab
                         Console.WriteLine("Welcome to the outside");
                         Console.WriteLine($"It took you {numOfGuesses} tries to unlock the door");
                     }
-                    numOfGuesses++;
-                    if(numOfGuesses > 5)
+                    else if(numOfGuesses == maxGuesses)
                     {
                         Console.WriteLine("Too many incorrect attempts");
                         break;

@@ -10,7 +10,7 @@ namespace BasicLoopsLab
     {
         public ExerciseTwo()
         {
-            int num = Tools.GetInt();
+            int num = Tools.GetInt(0);
 
             for(int i = num; i >= 0; i--)
             {

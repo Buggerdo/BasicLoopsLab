@@ -30,21 +30,37 @@ namespace BasicLoopsLab
             } while(true);
         }
 
+
         /// <summary>
-        /// Gets an int from the user
+        /// Gets a positive int form the user
         /// </summary>
-        /// <returns></returns>
-        public static int GetInt()
+        /// <returns>Positive int</returns>
+        public static int GetInt(int low)
         {
             int x;
+            bool isNumber;
             do
             {
                 Console.Clear();
                 Console.Write("Please enter a number: ");
-            } while(!int.TryParse(Console.ReadLine(), out x));
+                if(int.TryParse(Console.ReadLine(), out x) && x > low)
+                {
+
+                    isNumber = false;
+                }
+                else
+                {
+                    Console.WriteLine("Sorry that is not a valid number");
+                    Thread.Sleep(2000);
+                    isNumber = true;
+                }
+
+            } while(isNumber);
             Console.Clear();
             return x;
         }
+
+
         /// <summary>
         /// Gets on int frome the user
         /// </summary>
@@ -53,11 +69,24 @@ namespace BasicLoopsLab
         public static int GetInt(string desc)
         {
             int x;
+            bool isNumber;
             do
             {
                 Console.Clear();
                 Console.Write(desc);
-            } while(!int.TryParse(Console.ReadLine(), out x));
+                if(int.TryParse(Console.ReadLine(), out x))
+                {
+
+                    isNumber = false;
+                }
+                else
+                {
+                    Console.WriteLine("Sorry that is not a valid number");
+                    Thread.Sleep(2000);
+                    isNumber = true;
+                }
+
+            } while(isNumber);
             Console.Clear();
             return x;
         }

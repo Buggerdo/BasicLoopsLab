@@ -12,16 +12,12 @@ namespace BasicLoopsLab
         {
             bool isDoorLocked = true;
             int code = 13579;
-            int guess;
            
             while(isDoorLocked)
             {
-                guess = Tools.GetInt("Hi, please enter the key code: ");
+                int guess = Tools.GetInt("Hi, please enter the key code: ");
 
-                if(guess==code)
-                {
-                    isDoorLocked = false;
-                }
+                if(guess==code) isDoorLocked = false;
             }
             Console.Clear();
             Console.WriteLine("The door unlocks");

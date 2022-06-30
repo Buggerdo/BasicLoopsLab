@@ -10,21 +10,23 @@ namespace BasicLoopsLab
     {
         public ExerciseFive()
         {
-            bool isDoorLocked = true;
             int code = 13579;
 
-            Loop(code, isDoorLocked);
+            Loop(code);
             
             Console.WriteLine("Press any key to continue");
             Console.ReadKey();
         }
 
-        private void Loop(int code, bool isDoorLocked)
+        private void Loop(int code)
         {
-            int numOfGuesses = 1;
+            bool isDoorLocked = true;
+            int numOfGuesses = 0;
+            int maxGuesses = 5;
             do
             {
                 int guess = Tools.GetInt("Hi, please enter the key code: ");
+                numOfGuesses++;
                 if(guess == code)
                 {
                     isDoorLocked = false;
@@ -33,8 +35,7 @@ namespace BasicLoopsLab
                     Console.WriteLine("Welcome to the outside");
                     Console.WriteLine($"It took you {numOfGuesses} tries to unlock the door");
                 }
-                numOfGuesses++;
-                if(numOfGuesses > 5)
+                else if(numOfGuesses == maxGuesses)
                 {
                     Console.WriteLine("Too many incorrect attempts");
                     break;
